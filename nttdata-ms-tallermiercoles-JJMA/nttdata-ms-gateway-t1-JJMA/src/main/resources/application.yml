@@ -1,0 +1,24 @@
+server:
+  port: 9090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+      - id: formacionMS1
+        uri: lb://nttdata-taller-microservicios-ms1
+        predicates:
+        - Path=/whoAreYou/**  
+      - id: studentsMicro
+        uri: lb://nttdata-taller-microservicios-students
+        predicates:
+        - Path=/getStudentsInfo/**  
+      - id: schoolsMicro
+        uri: lb://nttdata-taller-microservicios-schools
+        predicates:
+        - Path=/getSchoolsInfo/**             

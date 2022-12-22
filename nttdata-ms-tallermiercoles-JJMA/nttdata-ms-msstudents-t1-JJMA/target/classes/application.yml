@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: nttdata-taller-microservicios-students
+  cloud:
+    config:
+      import-check:
+        enabled: false
+server:
+  port: 8090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
